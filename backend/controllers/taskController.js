@@ -98,7 +98,7 @@ const updateTask = async (req, res) => {
     }
 
     try {
-        const updatedData = await Task.findByIdAndUpdate(id, { name: name.trim(), isComplete }, { new: true })
+        const updatedData = await Task.findByIdAndUpdate(id, { name: name.trim(), isComplete }, { returnDocument: 'after' })
 
         if (!updatedData) {
             return res.status(404).json({
